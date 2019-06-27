@@ -13,35 +13,40 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomTimePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AMPMHourPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-75-5ZP" customClass="AMPMHourPicker" customModule="CustomTimePicker" customModuleProvider="target">
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nma-75-5ZP" customClass="AMPMHourPicker" customModule="AMPMHourPicker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="225.5" width="375" height="216"/>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="현재 시간" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4UB-g1-PnJ">
-                                <rect key="frame" x="150.5" y="171.5" width="74" height="24"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="a2i-4y-KPy">
+                                <rect key="frame" x="0.0" y="110.5" width="375" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="xpm-BC-oMZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Nma-75-5ZP" firstAttribute="top" secondItem="4UB-g1-PnJ" secondAttribute="bottom" constant="30" id="FKc-jt-Ab9"/>
+                            <constraint firstItem="a2i-4y-KPy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="21K-pN-76R"/>
+                            <constraint firstItem="a2i-4y-KPy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="84S-Fq-ew2"/>
                             <constraint firstItem="Nma-75-5ZP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="c7A-pl-IG6"/>
+                            <constraint firstItem="Nma-75-5ZP" firstAttribute="top" secondItem="a2i-4y-KPy" secondAttribute="bottom" constant="15" id="dQ3-Yp-jFl"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="a2i-4y-KPy" secondAttribute="trailing" id="kwc-0J-MKZ"/>
                             <constraint firstItem="Nma-75-5ZP" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wGu-8c-QJb"/>
                             <constraint firstItem="Nma-75-5ZP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wfB-CM-kTM"/>
-                            <constraint firstItem="4UB-g1-PnJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ybx-3v-r0E"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Nma-75-5ZP" secondAttribute="trailing" id="zmQ-Y4-QNl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="timeLabel" destination="4UB-g1-PnJ" id="y7Z-tE-3J8"/>
                         <outlet property="timePicker" destination="Nma-75-5ZP" id="cam-Gd-89e"/>
+                        <outlet property="timeTextView" destination="a2i-4y-KPy" id="wHF-oq-NT3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

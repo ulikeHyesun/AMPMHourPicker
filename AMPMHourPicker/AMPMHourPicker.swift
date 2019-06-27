@@ -9,7 +9,7 @@
 import UIKit
 
 protocol AMPMHourPickerDelegate: class {
-    func AMPMHourPickerDidSelectedTime(time: String)
+    func AMPMHourPickerDidSelectedTime(timeString: String, date: Date)
 }
 
 class AMPMHourPicker: UIPickerView {
@@ -70,7 +70,8 @@ extension AMPMHourPicker: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         print("User Selected Time is \(ampm[selectedAMPM]!) \(hours[row])")
         
-        vc?.AMPMHourPickerDidSelectedTime(time: String(selectedTimes))
+        let date = String(selectedTimes) + ":00"
+        vc?.AMPMHourPickerDidSelectedTime(timeString: String(selectedTimes), date: dateFormatter.date(from: date)!)
     }
     
     private func syncAMPMAndHourComponents() {

@@ -1,12 +1,18 @@
 //
 //  ViewController.swift
-//  CustomTimePicker
+//  AMPMHourPicker
 //
 //  Created by 최혜선 on 26/06/2019.
 //  Copyright © 2019 ulike. All rights reserved.
 //
 
 import UIKit
+
+public var dateFormatter: DateFormatter = {
+    let df = DateFormatter()
+    df.dateFormat = "HH:mm"
+    return df
+}()
 
 class ViewController: UIViewController {
     
@@ -15,13 +21,9 @@ class ViewController: UIViewController {
             timePicker.vc = self
         }
     }
-    @IBOutlet fileprivate weak var timeLabel: UILabel!
+    @IBOutlet fileprivate weak var timeTextView: UITextView!
     
-    private var currentTime: String = "" {
-        didSet {
-            timeLabel.text = "선택한 시간은 \(currentTime)시 입니다"
-        }
-    }
+    private var currentTime: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,9 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: AMPMHourPickerDelegate {
-    func AMPMHourPickerDidSelectedTime(time: String) {
-        currentTime = time
+    func AMPMHourPickerDidSelectedTime(timeString: String, date: Date) {
+        currentTime = timeString
+        
+        timeTextView.text = "선택한 시간은 \(currentTime)시 입니다 \n24시간 \(dateFormatter.string(from: date))"
     }
 }
